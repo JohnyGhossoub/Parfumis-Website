@@ -999,18 +999,6 @@ body.faq a {
         width: 100%;
     }
     
-    /* Navigation Buttons Mobile */
-    .navigation-buttons {
-        flex-direction: column;
-        gap: 15px;
-    }
-    
-    .navigation-buttons button {
-        width: 100%;
-        padding: 15px;
-        min-height: 44px;
-    }
-    
     /* Form Step Buttons Mobile */
     .form-step .options.options-buttons {
         grid-template-columns: 1fr;
@@ -1039,6 +1027,28 @@ body.faq a {
         /* Ensure Next button appears first (above Back) */
         .navigation-buttons button:last-child {
             order: -1;
+        }
+    }
+    
+    /* Desktop Navigation Buttons - Ensure proper left/right positioning */
+    @media screen and (min-width: 769px) {
+        .navigation-buttons {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        
+        .navigation-buttons button {
+            width: auto;
+            padding: 15px 35px;
+        }
+        
+        /* Ensure Back button is on left, Next button is on right */
+        .navigation-buttons button:first-child {
+            order: 1; /* Back button */
+        }
+        
+        .navigation-buttons button:last-child {
+            order: 2; /* Next button */
         }
     }
 }
@@ -1115,6 +1125,26 @@ body.faq a {
 @media screen and (min-width: 769px) {
     .mobile-bottom-nav {
         display: none;
+    }
+    
+    /* Ensure desktop contact form navigation is properly positioned */
+    .navigation-buttons {
+        flex-direction: row !important;
+        justify-content: space-between !important;
+    }
+    
+    .navigation-buttons button {
+        width: auto !important;
+        padding: 15px 35px !important;
+    }
+    
+    /* Force Back button on left, Next button on right */
+    .navigation-buttons button:first-child {
+        order: 1 !important; /* Back button */
+    }
+    
+    .navigation-buttons button:last-child {
+        order: 2 !important; /* Next button */
     }
     
     header {
