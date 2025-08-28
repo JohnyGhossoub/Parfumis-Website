@@ -981,8 +981,8 @@ body.faq a {
     body.home .main-content {
         justify-content: center !important; /* Center content vertically */
         min-height: 100vh; /* Full viewport height */
-        padding-top: 80px; /* Account for fixed header */
-        padding-bottom: 80px; /* Balance the layout */
+        padding-top: 60px; /* Account for fixed header - reduced spacing */
+        padding-bottom: 60px; /* Balance the layout */
     }
     
     /* Button Mobile */
@@ -1078,7 +1078,7 @@ body.faq a {
             left: auto !important;
             transform: none !important;
             width: 95%;
-            margin: 80px auto 40px auto; /* Normal header spacing - not too low */
+            margin: 60px auto 40px auto; /* Reduced header spacing for better proportion */
             display: flex;
             flex-direction: column;
             align-items: center;
