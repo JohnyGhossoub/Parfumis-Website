@@ -20,25 +20,36 @@ exports.handler = async (event, context) => {
 
     // Determine the recipient email based on the type.
     let recipientEmail;
+    let emailSubject;
+    
     switch (type) {
         case "issue":
             recipientEmail = "support@parfumis.com";
-            break;
-        case "host":
-            recipientEmail = "host@parfumis.com";
-            break;
-        case "buy":
-            recipientEmail = "buy@parfumis.com";
-            break;
-        case "ad":
-            recipientEmail = "ads@parfumis.com";
-            break;
-        case "request":
-            recipientEmail = "request@parfumis.com";
+            emailSubject = "Issue Report";
             break;
         case "general":
+            recipientEmail = "support@parfumis.com";
+            emailSubject = "General Inquiry";
+            break;
+        case "host":
+            recipientEmail = "info@parfumis.com";
+            emailSubject = "Host Parfumis Request";
+            break;
+        case "buy":
+            recipientEmail = "info@parfumis.com";
+            emailSubject = "Purchase Interest";
+            break;
+        case "ad":
+            recipientEmail = "marketing@parfumis.com";
+            emailSubject = "Advertising Inquiry";
+            break;
+        case "request":
+            recipientEmail = "info@parfumis.com";
+            emailSubject = "Parfum Request";
+            break;
         default:
             recipientEmail = "info@parfumis.com";
+            emailSubject = "Contact Form Submission";
             break;
     }
 
@@ -55,7 +66,7 @@ exports.handler = async (event, context) => {
     const mailOptions = {
         from: "forms@parfumis.com",
         to: recipientEmail,
-        subject: `New Contact Form Submission: ${type}`,
+        subject: `${emailSubject}: ${type.charAt(0).toUpperCase() + type.slice(1)} Form`,
         text: `You received a new submission:\n\n${JSON.stringify(data, null, 2)}`,
         // Set the reply-to header to the user's email from the form data.
         replyTo: data.email,
