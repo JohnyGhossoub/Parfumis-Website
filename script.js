@@ -95,6 +95,15 @@ if (canvas) {
 
     // Particle (Droplet) Setup
     let particles = [];
+    let animationId = null;
+    let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    let isLowPowerMode = false;
+    
+    // Check for reduced motion preference
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        isLowPowerMode = true;
+    }
+    
     class Particle {
         constructor(x, y, radius, velocityX, velocityY) {
             this.x = x;
@@ -140,9 +149,28 @@ if (canvas) {
             particles.push(new Particle(x, y, radius, velocityX, velocityY));
         }
     }
-    initParticles(2000);
+    
+    // Optimize particle count based on device capabilities
+    let particleCount = 2000;
+    if (isMobile) {
+        particleCount = 300; // Reduce particles on mobile
+    }
+    if (isLowPowerMode) {
+        particleCount = 100; // Further reduce for low power mode
+    }
+    
+    initParticles(particleCount);
 
+    // Throttle mousemove events for better performance
+    let mouseMoveThrottled = false;
     window.addEventListener("mousemove", (event) => {
+        if (mouseMoveThrottled) return;
+        mouseMoveThrottled = true;
+        
+        setTimeout(() => {
+            mouseMoveThrottled = false;
+        }, 16); // ~60fps throttle
+        
         const mousePos = { x: event.clientX, y: event.clientY };
         particles.forEach(particle => {
             const dx = particle.x - mousePos.x;
@@ -163,9 +191,25 @@ if (canvas) {
             particle.update();
             particle.draw();
         });
-        requestAnimationFrame(animate);
+        animationId = requestAnimationFrame(animate);
     }
-    animate();
+    
+    // Start animation only if not in low power mode
+    if (!isLowPowerMode) {
+        animate();
+    }
+    
+    // Pause animation when page is not visible (save battery)
+    document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+            if (animationId) {
+                cancelAnimationFrame(animationId);
+                animationId = null;
+            }
+        } else if (!isLowPowerMode) {
+            animate();
+        }
+    });
 }
 
 /* FAQ Logic with Accordion Behavior */

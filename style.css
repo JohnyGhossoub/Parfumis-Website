@@ -1103,6 +1103,20 @@ body.faq a {
         background: rgba(255, 255, 255, 0.3);
         transform: scale(0.98);
     }
+    
+    /* Optimize canvas performance on mobile */
+    #canvas-bg {
+        will-change: auto;
+        transform: translateZ(0);
+    }
+    
+    /* Reduce animations on mobile for better performance */
+    .btn,
+    header nav a,
+    .faq-item,
+    .partnership-option {
+        transition: all 0.2s ease;
+    }
 }
 
 /* High DPI Display Support */
