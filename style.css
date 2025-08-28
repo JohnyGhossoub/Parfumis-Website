@@ -1121,6 +1121,28 @@ body.faq a {
     .partnership-option {
         transition: all 0.2s ease;
     }
+    
+    /* Mobile contact form optimizations */
+    .form-step input,
+    .form-step textarea,
+    .form-step select {
+        font-size: 16px !important; /* Prevent zoom on iOS */
+        transform: translateZ(0); /* Hardware acceleration */
+        will-change: auto; /* Optimize for mobile */
+    }
+    
+    .form-step .question-answer-inline {
+        transform: translateZ(0); /* Hardware acceleration */
+    }
+    
+    /* Reduce form animations on mobile */
+    .form-step {
+        transition: none;
+    }
+    
+    .navigation-buttons button {
+        transition: all 0.2s ease; /* Faster transitions on mobile */
+    }
 }
 
 /* High DPI Display Support */

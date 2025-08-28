@@ -401,7 +401,10 @@ document.addEventListener("DOMContentLoaded", function () {
         initialStep.options.forEach((opt, index) => {
             const optionButton = document.createElement("button");
             optionButton.textContent = opt.label;
-            optionButton.style.animationDelay = `${0.2 + index * 0.2}s`;
+            // Remove animation delays on mobile for better performance
+            if (!isMobile) {
+                optionButton.style.animationDelay = `${0.2 + index * 0.2}s`;
+            }
             optionButton.addEventListener("click", () => {
                 responses[initialStep.name] = opt.value;
                 currentFlow = flows[opt.value];
@@ -471,12 +474,24 @@ document.addEventListener("DOMContentLoaded", function () {
                 answerElement.value = responses[step.name];
             }
             answerElement.style.height = "40px";
+            
+            // Optimize mobile input performance
+            if (isMobile) {
+                answerElement.style.fontSize = "16px"; // Prevent zoom on iOS
+                answerElement.style.transform = "translateZ(0)"; // Hardware acceleration
+            }
         } else {
             answerElement = document.createElement("input");
             answerElement.type = step.type;
             answerElement.name = step.name;
             if (responses[step.name]) {
                 answerElement.value = responses[step.name];
+            }
+            
+            // Optimize mobile input performance
+            if (isMobile) {
+                answerElement.style.fontSize = "16px"; // Prevent zoom on iOS
+                answerElement.style.transform = "translateZ(0)"; // Hardware acceleration
             }
         }
 
@@ -496,7 +511,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const backButton = document.createElement("button");
         backButton.textContent = "Back";
-        backButton.style.animationDelay = "0.4s";
+        // Remove animation delays on mobile for better performance
+        if (!isMobile) {
+            backButton.style.animationDelay = "0.4s";
+        }
         backButton.addEventListener("click", () => {
             if (currentStepIndex === 0) {
                 renderInitialStep();
@@ -509,7 +527,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const nextButton = document.createElement("button");
         nextButton.textContent = currentStepIndex === (currentFlow.steps.length - 1) ? "Submit" : "Next";
-        nextButton.style.animationDelay = "0.2s";
+        // Remove animation delays on mobile for better performance
+        if (!isMobile) {
+            nextButton.style.animationDelay = "0.2s";
+        }
         nextButton.addEventListener("click", () => {
             if (!saveResponse()) return;
             if (currentStepIndex < currentFlow.steps.length - 1) {
