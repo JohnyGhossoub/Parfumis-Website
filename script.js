@@ -450,6 +450,19 @@ document.addEventListener("DOMContentLoaded", function () {
         const navDiv = document.createElement("div");
         navDiv.className = "navigation-buttons";
 
+        const backButton = document.createElement("button");
+        backButton.textContent = "Back";
+        backButton.style.animationDelay = "0.4s";
+        backButton.addEventListener("click", () => {
+            if (currentStepIndex === 0) {
+                renderInitialStep();
+            } else {
+                currentStepIndex--;
+                renderCurrentStep();
+            }
+        });
+        navDiv.appendChild(backButton);
+
         const nextButton = document.createElement("button");
         nextButton.textContent = currentStepIndex === (currentFlow.steps.length - 1) ? "Submit" : "Next";
         nextButton.style.animationDelay = "0.2s";
@@ -463,19 +476,7 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
         navDiv.appendChild(nextButton);
-
-        const backButton = document.createElement("button");
-        backButton.textContent = "Back";
-        backButton.style.animationDelay = "0.4s";
-        backButton.addEventListener("click", () => {
-            if (currentStepIndex === 0) {
-                renderInitialStep();
-            } else {
-                currentStepIndex--;
-                renderCurrentStep();
-            }
-        });
-        navDiv.appendChild(backButton);
+        
         formContainer.appendChild(navDiv);
     }
 

@@ -1041,15 +1041,6 @@ body.faq a {
             width: auto;
             padding: 15px 35px;
         }
-        
-        /* Ensure Back button is on left, Next button is on right */
-        .navigation-buttons button:first-child {
-            order: 1; /* Back button */
-        }
-        
-        .navigation-buttons button:last-child {
-            order: 2; /* Next button */
-        }
     }
 }
 
@@ -1136,15 +1127,6 @@ body.faq a {
     .navigation-buttons button {
         width: auto !important;
         padding: 15px 35px !important;
-    }
-    
-    /* Force Back button on left, Next button on right */
-    .navigation-buttons button:first-child {
-        order: 1 !important; /* Back button */
-    }
-    
-    .navigation-buttons button:last-child {
-        order: 2 !important; /* Next button */
     }
     
     header {
