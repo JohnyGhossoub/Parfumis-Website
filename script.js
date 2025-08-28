@@ -1,5 +1,8 @@
 /* Combined script.js - Canvas Animation, FAQ Logic, and Contact Form Logic */
 
+/* Global Mobile Detection */
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 /* Active Page Detection for Navigation */
 document.addEventListener("DOMContentLoaded", function () {
     // Get current page path
@@ -96,7 +99,6 @@ if (canvas) {
     // Particle (Droplet) Setup
     let particles = [];
     let animationId = null;
-    let isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     let isLowPowerMode = false;
     
     // Check for reduced motion preference
