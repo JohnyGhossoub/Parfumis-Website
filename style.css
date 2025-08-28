@@ -1015,15 +1015,33 @@ body.faq a {
     /* Contact Form Navigation Buttons Mobile - Side by side (Back left, Next right) */
     @media screen and (max-width: 768px) {
         .navigation-buttons {
-            flex-direction: row;
-            justify-content: space-between;
+            flex-direction: row !important;
+            justify-content: space-between !important;
             gap: 15px;
         }
         
         .navigation-buttons button {
-            width: 48%; /* Each button takes roughly half the width */
+            width: 48% !important; /* Each button takes roughly half the width */
             padding: 15px;
             min-height: 44px;
+        }
+        
+        /* Ensure proper button positioning on mobile */
+        .navigation-buttons button:first-child {
+            order: 1 !important; /* Back button stays first (left) */
+        }
+        
+        .navigation-buttons button:last-child {
+            order: 2 !important; /* Next button stays second (right) */
+        }
+        
+        /* Mobile question text optimization - fit on one line */
+        .question-answer-inline label {
+            font-size: 0.9rem !important;
+            line-height: 1.2 !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
         }
     }
     
