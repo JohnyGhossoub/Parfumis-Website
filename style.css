@@ -205,6 +205,32 @@ header nav {
     letter-spacing: 0;
 }
 
+/* Radio button styling improvements */
+.question-answer-inline .options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.question-answer-inline .options label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.question-answer-inline .options label:hover {
+    color: var(--luxury-silver-jewel);
+}
+
+.question-answer-inline .options input[type="radio"] {
+    width: auto;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--luxury-silver-jewel);
+}
+
 /* FAQ Page Styles */
 /* FAQ Container as Flex Column */
 .faq-container {
@@ -1056,6 +1082,29 @@ body.faq a {
         .question-answer-inline textarea,
         .question-answer-inline select {
             width: 100% !important;
+        }
+        
+        /* Mobile radio button optimization - better alignment */
+        .question-answer-inline .options {
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 12px !important;
+            width: 100% !important;
+        }
+        
+        .question-answer-inline .options label {
+            display: flex !important;
+            align-items: center !important;
+            gap: 8px !important;
+            cursor: pointer !important;
+            font-size: 1rem !important;
+            line-height: 1.3 !important;
+        }
+        
+        .question-answer-inline .options input[type="radio"] {
+            width: auto !important;
+            margin: 0 !important;
+            cursor: pointer !important;
         }
     }
     
