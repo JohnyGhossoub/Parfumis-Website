@@ -1065,9 +1065,15 @@ body.faq a {
     /* Mobile Header Spacing */
     @media screen and (max-width: 768px) {
         .main-content {
-            width: 95%; /* Slightly wider on mobile for better centering */
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative !important; /* Override absolute positioning */
+            top: auto !important;
+            left: auto !important;
+            transform: none !important;
+            width: 95%;
+            margin: 120px auto 40px auto; /* Proper top margin for fixed header */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         
         header nav {
