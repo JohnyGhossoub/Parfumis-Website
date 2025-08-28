@@ -1026,8 +1026,12 @@ body.faq a {
         }
         
         /* Ensure Next button appears first (above Back) */
+        .navigation-buttons button:first-child {
+            order: 2; /* Back button goes to bottom */
+        }
+        
         .navigation-buttons button:last-child {
-            order: -1;
+            order: 1; /* Next button goes to top */
         }
     }
     
