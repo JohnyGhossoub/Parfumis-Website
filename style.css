@@ -981,8 +981,8 @@ body.faq a {
     body.home .main-content {
         justify-content: center !important; /* Center content vertically */
         min-height: 100vh; /* Full viewport height */
-        padding-top: 20px; /* Minimal spacing for header */
-        padding-bottom: 20px; /* Balance the layout */
+        padding-top: 10px; /* 10px below header */
+        padding-bottom: 10px; /* Balance the layout */
     }
     
     /* Button Mobile */
@@ -1091,7 +1091,7 @@ body.faq a {
             left: auto !important;
             transform: none !important;
             width: 95%;
-            margin: 20px auto 40px auto; /* Minimal top margin - just enough for header */
+            margin: 10px auto 40px auto; /* 10px below header, no space above */
             display: flex;
             flex-direction: column;
             align-items: center;
