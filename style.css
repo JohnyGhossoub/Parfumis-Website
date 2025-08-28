@@ -1012,26 +1012,18 @@ body.faq a {
         min-height: 44px;
     }
     
-    /* Contact Form Navigation Buttons Mobile - Next above Back */
+    /* Contact Form Navigation Buttons Mobile - Side by side (Back left, Next right) */
     @media screen and (max-width: 768px) {
         .navigation-buttons {
-            flex-direction: column-reverse;
+            flex-direction: row;
+            justify-content: space-between;
             gap: 15px;
         }
         
         .navigation-buttons button {
-            width: 100%;
+            width: 48%; /* Each button takes roughly half the width */
             padding: 15px;
             min-height: 44px;
-        }
-        
-        /* Ensure Next button appears first (above Back) */
-        .navigation-buttons button:first-child {
-            order: 2; /* Back button (first child) goes to bottom */
-        }
-        
-        .navigation-buttons button:last-child {
-            order: 1; /* Next button (last child) goes to top */
         }
     }
     
