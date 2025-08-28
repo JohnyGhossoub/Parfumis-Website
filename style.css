@@ -981,8 +981,8 @@ body.faq a {
     body.home .main-content {
         justify-content: center !important; /* Center content vertically */
         min-height: 100vh; /* Full viewport height */
-        padding-top: 60px; /* Account for fixed header - reduced spacing */
-        padding-bottom: 60px; /* Balance the layout */
+        padding-top: 20px; /* Minimal spacing for header */
+        padding-bottom: 20px; /* Balance the layout */
     }
     
     /* Button Mobile */
@@ -1072,13 +1072,26 @@ body.faq a {
     
     /* Mobile Header Spacing */
     @media screen and (max-width: 768px) {
+        /* Ensure no extra space above header on mobile */
+        body, html {
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden;
+        }
+        
+        header {
+            top: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
         .main-content {
             position: relative !important; /* Override absolute positioning */
             top: auto !important;
             left: auto !important;
             transform: none !important;
             width: 95%;
-            margin: 60px auto 40px auto; /* Reduced header spacing for better proportion */
+            margin: 20px auto 40px auto; /* Minimal top margin - just enough for header */
             display: flex;
             flex-direction: column;
             align-items: center;
