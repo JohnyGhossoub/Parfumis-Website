@@ -1015,11 +1015,12 @@ body.faq a {
         flex-direction: column;
         gap: 30px;
         margin: 80px auto 30px auto; /* Consistent top margin from header */
-        padding: 15px;
+        padding: 0 15px; /* Remove top/bottom padding, keep horizontal padding */
     }
     
     .howitworks-text {
         padding: 25px;
+        margin: 0; /* Remove any default margins */
     }
     
     .howitworks-video iframe {
