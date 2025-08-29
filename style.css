@@ -123,18 +123,13 @@ header nav {
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-/* Hero Section Logo (Pop Up Animation) */
-.logo-container {
+/* Hero Section Titles (Pop Up Animation) */
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
     margin: 0;
+    font-weight: bold;
     animation: popUp 0.8s ease-out forwards;
-}
-
-.hero-logo {
-    max-width: 300px;
-    width: 100%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
 }
 
 .hero p {
@@ -974,8 +969,8 @@ body.faq a {
     }
     
     /* Hero Section Mobile */
-    .hero-logo {
-        max-width: 200px;
+    .hero h1 {
+        font-size: 2.5rem;
     }
     
     .hero p {
@@ -1200,8 +1195,8 @@ body.faq a {
         width: 85%;
     }
     
-    .hero-logo {
-        max-width: 250px;
+    .hero h1 {
+        font-size: 3.5rem;
     }
     
     .partnerships-container {
@@ -1220,8 +1215,8 @@ body.faq a {
         max-width: 1200px;
     }
     
-    .hero-logo {
-        max-width: 350px;
+    .hero h1 {
+        font-size: 5rem;
     }
     
     .partnerships-container {
