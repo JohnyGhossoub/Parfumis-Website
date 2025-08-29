@@ -1,0 +1,5 @@
+[33m46bbfac[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m Adjust mobile spacing: 10px below header, no space above
+[33mee16d61[m Fix mobile header spacing: eliminate extra space above header with minimal 20px margin
+[33ma31583d[m Reduce mobile header spacing: from 80px to 60px for better proportion
+[33m08d247b[m Fix mobile layout: home page vertical centering and consistent header spacing across all pages
+[33md2c30ef[m Fix mobile centering: override absolute positioning with relative positioning for proper container centering
