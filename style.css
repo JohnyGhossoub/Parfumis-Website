@@ -132,6 +132,20 @@ header nav {
     animation: popUp 0.8s ease-out forwards;
 }
 
+/* Hero Section Logo */
+.logo-container {
+    margin: 0;
+    animation: popUp 0.8s ease-out forwards;
+}
+
+.hero-logo {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
 .hero p {
     font-size: 1.5rem;
     margin: 20px 0;
@@ -973,6 +987,10 @@ body.faq a {
         font-size: 2.5rem;
     }
     
+    .hero-logo {
+        max-width: 200px;
+    }
+    
     .hero p {
         font-size: 1.2rem;
     }
@@ -1199,6 +1217,10 @@ body.faq a {
         font-size: 3.5rem;
     }
     
+    .hero-logo {
+        max-width: 250px;
+    }
+    
     .partnerships-container {
         gap: 25px;
     }
@@ -1217,6 +1239,10 @@ body.faq a {
     
     .hero h1 {
         font-size: 5rem;
+    }
+    
+    .hero-logo {
+        max-width: 350px;
     }
     
     .partnerships-container {
